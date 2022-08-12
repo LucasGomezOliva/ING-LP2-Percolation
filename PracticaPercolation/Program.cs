@@ -62,7 +62,24 @@ namespace PracticaPercolation
 
             // casos base
 
+            //
+            if (i >= n || j >= n || i < 0 || j < 0) { return; }
+
+            else if (original[i, j] == false) { return; }
+
+            else if (llena[i, j] ==  true) { return; }
+
             // casos recursivos
+
+            else
+            {
+                llena[i, j] = true;
+                flujo(original, llena, i + 1, j);
+                flujo(original, llena, i, j + 1);
+                flujo(original, llena, i, j - 1);
+                flujo(original, llena, i - 1, j);
+                return;
+            }
 
         }
 
